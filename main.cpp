@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#include <iostream>
+#include <fstream>
 using namespace std;
 
 enum Color {RED, BLACK};
@@ -43,7 +45,20 @@ void levelOrderHelper(Node *root)
 
 
 
-int main()
+int main(int argc, char *argv[])
 {
-    return 0;
+	ifstream input;
+	ofstream output;
+	input.open(argv[1]);
+	output.open(argv[2]);
+	float val;
+	input >> val;
+	while(!input.eof()) {
+		//insert node with val as its cost
+		//call the algorithm
+		input >> val;
+	}
+	input.close();
+	output.close();
+	return 0;
 }

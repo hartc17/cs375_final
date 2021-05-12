@@ -1,7 +1,4 @@
-class RBTree
-{
-
-};
+#include "RBTree.h"
 
 void RBTree::rotateLeft(Node *&root, Node *&pt)
 {
