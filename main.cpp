@@ -1,64 +1,48 @@
-#include <bits/stdc++.h>
 #include <iostream>
 #include <fstream>
+#include <string>
+
+#include "RBTree.h"
+
 using namespace std;
-
-enum Color {RED, BLACK};
-
-struct Node
-{
-    int price;
-    bool color;
-    Node *left, *right, *parent;
-
-    // Constructor
-    Node(int data)
-    {
-       this->price = data;
-       left = right = parent = NULL;
-       this->color = RED;
-    }
-};
-
-
-
-
-// A recursive function to do inorder traversal
-void inorderHelper(Node *root)
-{
-
-}
-
-/* A utility function to insert
-    a new node with given key
-   in BST */
-Node* BSTInsert(Node* root, Node *pt)
-{
-
-}
-
-// Utility function to do level order traversal
-void levelOrderHelper(Node *root)
-{
-
-}
-
 
 
 int main(int argc, char *argv[])
 {
-	ifstream input;
-	ofstream output;
-	input.open(argv[1]);
-	output.open(argv[2]);
-	float val;
-	input >> val;
-	while(!input.eof()) {
-		//insert node with val as its cost
-		//call the algorithm
-		input >> val;
-	}
-	input.close();
-	output.close();
+	//Test int
+	RBTree<int>  test_tree; 
+	test_tree.insertData(4);
+	test_tree.insertData(1);
+	test_tree.insertData(3);
+	test_tree.insertData(2);
+	test_tree.display();
+
+	test_tree.deleteData(4);
+	test_tree.display();
+	test_tree.deleteData(3);
+	test_tree.display();
+
+	test_tree.deleteData(1);
+	test_tree.display();
+	test_tree.deleteData(2);
+	test_tree.display();
+	//Test string
+	RBTree<string> test_string;
+	test_string.insertData("4");
+	test_string.insertData("1");
+	test_string.insertData("3");
+	test_string.insertData("2");
+	test_string.display();
+
+	test_string.deleteData("4");
+	test_string.display();
+	test_string.deleteData("3");
+	test_string.display();
+
+	test_string.deleteData("1");
+	test_string.display();
+	test_string.deleteData("2");
+	test_string.display();
+
 	return 0;
 }
