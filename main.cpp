@@ -7,33 +7,39 @@
 
 using namespace std;
 
-RBTREE_NODE* successor(RBTREE_NODE* x) {
-	if(x.right_node != NULL) {
-		x = x.right_node;
-		while(x.left_node != NULL) x = x.left_node;
+RBTree<int>::RBTREE_NODE* successor(RBTree<int>::RBTREE_NODE* x) {
+	if(x->right_node != NULL) {
+		x = x->right_node;
+		while(x->left_node != NULL) x = x->left_node;
 		return x;
 	}
-	RBTREE_NODE* y = x.parent_node;
-	while(y != NULL && x == y.right_node) {
+	RBTree<int>::RBTREE_NODE* y = x->parent_node;
+	while(y != NULL && x == y->right_node) {
 		x = y;
-		y = y.parent_node;
+		y = y->parent_node;
 	}
 	return y;
 }
 
 void above(RBTree<int> &tree, vector<int> &ret, int data) {
-	RBTREE_NODE* node = searchData(tree, data);
-	RBTREE_NODE* max = tree.root_node;
-	while(max.right_node != NULL) max = max.right_node;
+	RBTree<int>::RBTREE_NODE* node = tree.searchData(tree.root_node, data);
+	RBTree<int>::RBTREE_NODE* max = tree.root_node;
+	while(max->right_node != NULL) max = max->right_node;
 	while(node != max) {
 		node = successor(node);
-		ret.push_back(node.data);
+		ret.push_back(node->data);
 	}
 
 }
 
 void below(RBTree<int> &tree, vector<int> &ret, int data) {
-
+	RBTree<int>::RBTREE_NODE* max = tree.searchData(tree.root_node, data);
+	RBTree<int>::RBTREE_NODE* node = tree.root_node;
+	while(node->left_node != NULL) node = node->left_node;
+	while(node != max) {
+		ret.push_back(node->data);
+		node = successor(node);
+	}
 }
 
 int main(int argc, char *argv[])

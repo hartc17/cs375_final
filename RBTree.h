@@ -28,7 +28,6 @@ public:
 
 private:
 	
-	RBTREE_NODE* root_node;
 	RBTREE_NODE* getParent(RBTREE_NODE* node);
 	void setParent(RBTREE_NODE* node, RBTREE_NODE* parent);
 	bool getColor(RBTREE_NODE* node);
@@ -38,7 +37,6 @@ private:
 	void setNodeColor(RBTREE_NODE* node, bool color);
 	void setNodeRed(RBTREE_NODE* node);
 
-	RBTREE_NODE* searchData(RBTREE_NODE* tree, RBTREE_DATA data);
 	void leftRotate(RBTREE_NODE* & tree, RBTREE_NODE* node);
 	void rightRotate(RBTREE_NODE* &tree, RBTREE_NODE* node);
 	void insertFixup(RBTREE_NODE* &tree, RBTREE_NODE* node);
@@ -54,6 +52,10 @@ public:
 	bool insertData(RBTREE_DATA data);
 	bool deleteData(RBTREE_DATA data);
 	void display();
+	//moved root_node to public
+	RBTREE_NODE* root_node;
+	//moved searchData to public
+	RBTREE_NODE* searchData(RBTREE_NODE* tree, RBTREE_DATA data);
 
 
 };
